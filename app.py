@@ -9,7 +9,7 @@ app.secret_key = os.environ['FLASK_SECRET_KEY']
 
 @app.route('/')
 def content():
-    text = open('/opt/traccar/logs/tracker-server.log', 'r+')
+    text = open(os.environ['FILE_PATH'], 'r')
     content = text.read()
     text.close()
     return render_template('content.html', text=content)

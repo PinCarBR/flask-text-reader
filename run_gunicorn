@@ -1,4 +1,4 @@
 #!/bin/bash
 cd -- "$(dirname "$0")"
 export $(<.env)
-sudo gunicorn --bind 0.0.0.0:8050 app:app
+gunicorn --bind 0.0.0.0:8050 app:app
