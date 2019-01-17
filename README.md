@@ -5,3 +5,5 @@ Make text files like logs available for simple remote access via web browser.
 2) Run `pip install -r requirements.txt`
 3) Run `bash run_gunicorn` or `bash run_flask_server` for debugging.
 4) Your file content will be available on `http://your_ip:8050`.
+
+**Tested on Python3**
