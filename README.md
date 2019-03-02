@@ -24,5 +24,7 @@ ExecStart=/home/user_name/flask-text-reader/venv/bin/gunicorn --bind 0.0.0.0:805
 [Install]
 WantedBy=multi-user.target
 ```
+3) To ensure proper opeaeration with multiple users, make sure the folder and its contents belongs to a common group of users:  
+`sudo chgrp -R root flask-text-reader/`  
 
 **Tested on Python3**
