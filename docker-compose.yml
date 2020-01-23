@@ -1,0 +1,18 @@
+version: "3"
+services:
+    flask-text-reader:
+        container_name: flask-text-reader
+        restart: always
+        build: ./
+        image: flask-text-reader
+        env_file:
+            - ./.env
+        labels:
+            - traefik.backend=flask-text-reader
+            - traefik.port=8050
+            - traefik.frontend.rule=Host:${DOMAIN}
+            - traefik.frontend.auth.basic.users=${AUTH_USER_PASSWORD}
+        volumes:
+            - ${FILE_PATH}:${FILE_PATH}:ro
+        ports:
+            - "8050:8050"
