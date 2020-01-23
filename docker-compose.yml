@@ -10,9 +10,9 @@ services:
         labels:
             - traefik.backend=flask-text-reader
             - traefik.port=8050
-            - traefik.frontend.rule=Host:${DOMAIN}
+            - traefik.frontend.rule=Host:${SUBDOMAIN_LOG}
             - traefik.frontend.auth.basic.users=${AUTH_USER_PASSWORD}
         volumes:
-            - ${FILE_PATH}:${FILE_PATH}:ro
+            - ${FILE_PATH}:${FILE_PATH}
         ports:
             - "8050:8050"
