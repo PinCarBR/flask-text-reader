@@ -13,6 +13,6 @@ services:
             - traefik.frontend.rule=Host:${SUBDOMAIN_LOG}
             - traefik.frontend.auth.basic.users=${AUTH_USER_PASSWORD}
         volumes:
-            - ${FILE_PATH}:${FILE_PATH}
+            - ${FILE_DIR}:${FILE_DIR}:rw
         ports:
             - "8050:8050"
