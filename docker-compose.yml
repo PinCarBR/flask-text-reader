@@ -8,10 +8,9 @@ services:
         env_file:
             - ./.env
         labels:
-            - traefik.backend=flask-text-reader
-            - traefik.port=8050
-            - traefik.frontend.rule=Host:${SUBDOMAIN_LOG}
-            - traefik.frontend.auth.basic.users=${AUTH_USER_PASSWORD}
+            - traefik.http.routers.log_reader.rule=Host(`${SUBDOMAIN_LOG}`)
+            - traefik.http.routers.log_reader.middlewares=auth
+            - traefik.http.middlewares.auth.basicauth.users=${AUTH_USER_PASSWORD}
         volumes:
             - ${FILE_DIR}:${FILE_DIR}:rw
         ports:
